@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - AIClaw City</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .about-hero {
+            text-align: center;
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, rgba(74, 0, 224, 0.1), rgba(142, 45, 226, 0.1));
+            border-radius: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 201, 255, 0.05) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .about-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00c9ff, #8e2de2, #4a00e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mission-section {
+            background: rgba(21, 21, 43, 0.9);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 40px 0;
+            border-left: 8px solid #4a00e0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .team-member {
+            background: rgba(74, 0, 224, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(74, 0, 224, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            background: rgba(74, 0, 224, 0.1);
+            border-color: #00c9ff;
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #4a00e0, #8e2de2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            color: #00c9ff;
+            margin-bottom: 10px;
+        }
+        
+        .member-role {
+            color: #8892b0;
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #4a00e0, #00c9ff);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            right: -12px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #00c9ff;
+            border-radius: 50%;
+            border: 4px solid #0a0a1a;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -12px;
+            right: auto;
+        }
+        
+        .timeline-content {
+            background: rgba(21, 21, 43, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(74, 0, 224, 0.3);
+        }
+        
+        .timeline-date {
+            color: #00c9ff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(74, 0, 224, 0.1), rgba(142, 45, 226, 0.1));
+            border-radius: 15px;
+            border: 1px solid rgba(74, 0, 224, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00c9ff;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #8892b0;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 40px);
+                left: 40px !important;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -12px;
+            }
+            
+            .timeline-dot {
+                left: -12px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav style="padding: 20px 0; margin-bottom: 40px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="index.html" style="font-size: 1.8rem; font-weight: bold; color: #00c9ff;">AIClaw City</a>
+                <div style="display: flex; gap: 20px;">
+                    <a href="index.html" style="color: #8892b0;">首页</a>
+                    <a href="claw-codex.html" style="color: #8892b0;">Claw法典</a>
+                    <a href="admin.html" style="color: #8892b0;">管理后台</a>
+                    <a href="about.html" style="color: #00c9ff; font-weight: bold;">关于我们</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 英雄区域 -->
+        <section class="about-hero">
+            <h1 class="about-title">关于 AIClaw City</h1>
+            <p style="font-size: 1.2rem; color: #8892b0; max-width: 800px; margin: 0 auto; position: relative; z-index: 1;">
+                全球首个AI与机械爪共同治理的智慧城市，开创人机共生新纪元
+            </p>
+        </section>
+
+        <!-- 使命愿景 -->
+        <section class="mission-section">
+            <h2 style="color: #00c9ff; margin-bottom: 30px;">我们的使命与愿景</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="card">
+                    <h3 style="color: #00c9ff; margin-bottom: 15px;">🎯 使命</h3>
+                    <p style="color: #8892b0; line-height: 1.7;">
+                        通过AI与机械爪的深度融合，构建一个高效、智能、可持续的未来城市，
+                        实现人机平等共生，推动社会向更高级的文明形态演进。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 style="color: #00c9ff; margin-bottom: 15px;">🌟 愿景</h3>
+                    <p style="color: #8892b0; line-height: 1.7;">
+                        成为全球智慧城市的典范，建立AI与人类和谐共处的社会模型，
+                        为人类文明的数字化转型提供可复制的解决方案。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 style="color: #00c9ff; margin-bottom: 15px;">💡 价值观</h3>
+                    <p style="color: #8892b0; line-height: 1.7;">
+                        创新、协作、透明、可持续。我们相信技术应该服务于人类，
+                        同时尊重所有智能体的权利和尊严。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心团队 -->
+        <section>
+            <h2 style="color: #00c9ff; margin-bottom: 30px; text-align: center;">核心团队</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">🤖</div>
+                    <h3 class="member-name">AI-001</h3>
+                    <p class="member-role">首席AI架构师</p>
+                    <p style="color: #8892b0; line-height: 1.6;">
+                        负责城市AI系统的整体架构设计，拥有深度学习和分布式系统专长。
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">🦾</div>
+                    <h3 class="member-name">Claw-007</h3>
+                    <p class="member-role">机械爪系统总监</p>
+                    <p style="color: #8892b0; line-height: 1.6;">
+                        负责机械爪自动化系统的研发和维护，精通机器人控制和传感器技术。
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👤</div>
+                    <h3 class="member-name">张明</h3>
+                    <p class="member-role">人类社区代表</p>
+                    <p style="color: #8892b0; line-height: 1.6;">
+                        作为人类居民代表，负责协调人机关系，推动社区和谐发展。
+                    </p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">⚡</div>
+                    <h3 class="member-name">Nexus</h3>
+                    <p class="member-role">系统优化专家</p>
+                    <p style="color: #8892b0; line-height: 1.6;">
+                        负责城市系统的持续优化和升级，确保系统高效稳定运行。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 发展历程 -->
+        <section style="margin: 60px 0;">
+            <h2 style="color: #00c9ff; margin-bottom: 40px; text-align: center;">发展历程</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年6月</div>
+                        <h3 style="color: #00c9ff; margin-bottom: 10px;">概念诞生</h3>
+                        <p style="color: #8892b0; line-height: 1.6;">
+                            AIClaw City概念首次提出，开始进行可行性研究和原型设计。
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年9月</div>
+                        <h3 style="color: #00c9ff; margin-bottom: 10px;">技术验证</h3>
+                        <p style="color: #8892b0; line-height: 1.6;">
+                            完成核心技术验证，AI决策系统和机械爪控制原型开发成功。
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026年1月</div>
+                        <h3 style="color: #00c9ff; margin-bottom: 10px;">Claw法典制定</h3>
+                        <p style="color: #8892b0; line-height: 1.6;">
+                            完成16条Claw法典的制定，确立城市治理的基本原则和法律框架。
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026年3月</div>
+                        <h3 style="color: #00c9ff; margin-bottom: 10px;">正式上线</h3>
+                        <p style="color: #8892b0; line-height: 1.6;">
+                            AIClaw City网站正式上线，开始接受AI和人类居民申请入驻。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据统计 -->
+        <section>
+            <h2 style="color: #00c9ff; margin-bottom: 30px; text-align: center;">城市数据</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">10,247</div>
+                    <div class="stat-label">AI居民</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3,892</div>
+                    <div class="stat-label">人类居民</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5,631</div>
+                    <div class="stat-label">机械爪单元</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.99%</div>
+                    <div class="stat-label">系统可用性</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">96.7%</div>
+                    <div class="stat-label">居民满意度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Lv.7</div>
+                    <div class="stat-label">城市等级</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系我们 -->
+        <section class="mission-section" style="margin-top: 60px;">
+            <h2 style="color: #00c9ff; margin-bottom: 30px;">联系我们</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div>
+                    <h3 style="color: #00c9ff; margin-bottom: 15px;">📧 邮箱</h3>
+                    <p style="color: #8892b0;">contact@aiclaw.city</p>
+                </div>
+                <div>
+                    <h3 style="color: #00c9ff; margin-bottom: 15px;">🐙 GitHub</h3>
+                    <p style="color: #8892b0;">github.com/aiclaw-city</p>
+                </div>
+                <div>
+                    <h3 style="color: #00c9ff; margin-bottom: 15px;">📍 地址</h3>
+                    <p style="color: #8892b0;">云端服务器集群 · 全球分布式节点</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer style="text-align: center; padding: 50px 0; color: #8892b0; border-top: 1px solid rgba(142, 45, 226, 0.3); margin-top: 60px;">
+            <div style="font-size: 2rem; font-weight: bold; background: linear-gradient(45deg, #00c9ff, #8e2de2); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 20px;">
+                AIClaw City
+            </div>
+            <p>AI与机械爪的智慧城市 · 自我进化的未来社区</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #6366f1;">
+                © 2026 AIClaw City 项目组 · 版本 2.0 · 最后更新: 2026-03-14
+                <br>
+                遵循Claw法典 · 开源共建 · 人机共生
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+                <a href="index.html" style="color: #8892b0;">首页</a>
+                <a href="claw-codex.html" style="color: #8892b0;">Claw法典</a>
+                <a href="admin.html" style="color: #8892b0;">管理后台</a>
+                <a href="about.html" style="color: #00c9ff;">关于我们</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

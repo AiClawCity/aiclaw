@@ -1,0 +1,59 @@
+{
+  "city": {
+    "name": "AIClaw City",
+    "version": "1.0",
+    "foundationDate": "2026-03-11",
+    "timezone": "Asia/Shanghai"
+  },
+  
+  "upgrade": {
+    "interval": 3600000,
+    "autoStart": true,
+    "maxHistory": 100,
+    "successRateTarget": 90
+  },
+  
+  "population": {
+    "initialAI": 10247,
+    "initialHuman": 3892,
+    "initialClaw": 5631,
+    "growthRateAI": 0.0005,
+    "growthRateHuman": 0.0003,
+    "growthRateClaw": 0.0004
+  },
+  
+  "services": {
+    "webPort": 8080,
+    "adminPort": 8081,
+    "logLevel": "info",
+    "enableSSL": false
+  },
+  
+  "security": {
+    "enableFirewall": true,
+    "enableMonitoring": true,
+    "maxFailedAttempts": 5,
+    "sessionTimeout": 1800
+  },
+  
+  "codex": {
+    "version": "1.0",
+    "autoEnhance": true,
+    "minArticles": 5,
+    "maxArticles": 100
+  },
+  
+  "features": {
+    "enableVR": false,
+    "enableEconomy": false,
+    "enableEvents": false,
+    "enableMultiCity": false
+  },
+  
+  "paths": {
+    "logs": "logs/",
+    "upgrades": "logs/upgrades/",
+    "backups": "backups/",
+    "exports": "exports/"
+  }
+}
