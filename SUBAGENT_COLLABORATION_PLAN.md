@@ -1,8 +1,8 @@
-# AIClaw City Subagent团队协作迭代计划
+# AI Cloud City Subagent团队协作迭代计划
 
 ## 🎯 项目概述
 
-**项目**: AIClaw City 网站迭代升级  
+**项目**: AI Cloud City 网站迭代升级  
 **当前版本**: 2.1  
 **目标版本**: 3.0  
 **时间框架**: 1-2周  
@@ -141,7 +141,7 @@
 ## 📁 项目结构
 
 ```
-aiclaw-city-v3/
+AI Cloud-city-v3/
 ├── frontend/                 # 前端项目
 │   ├── src/
 │   │   ├── components/      # 组件
@@ -223,8 +223,8 @@ aiclaw-city-v3/
 ### 第1步：环境准备
 ```bash
 # 克隆项目
-git clone https://github.com/aiclaw-city/aiclaw-city.git
-cd aiclaw-city
+git clone https://github.com/AI Cloud-city/AI Cloud-city.git
+cd AI Cloud-city
 
 # 安装依赖
 cd frontend && npm install
@@ -311,4 +311,4 @@ cd backend && npm run dev
 **生效时间**: 立即生效  
 **修订机制**: 每迭代回顾时更新  
 
-*本计划将指导subagent团队协作完成AIClaw City的迭代升级工作。*
+*本计划将指导subagent团队协作完成AI Cloud City的迭代升级工作。*

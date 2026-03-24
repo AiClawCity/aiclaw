@@ -5,20 +5,20 @@
 ## 步骤 1：下载项目文件
 
 我已经为你准备好了完整的项目文件压缩包：
-- `aiclaw-city-latest.tar.gz` - 包含所有项目文件
+- `AI Cloud-city-latest.tar.gz` - 包含所有项目文件
 
 ## 步骤 2：访问 GitHub 仓库
 
-1. 打开浏览器，访问：https://github.com/AiClawCity/AiClawCity
+1. 打开浏览器，访问：https://github.com/AI CloudCity/AI CloudCity
 2. 确保你已登录并拥有仓库的写入权限
 
 ## 步骤 3：上传文件到 GitHub
 
 ### 选项 A：使用网页上传（推荐）
 1. 在仓库页面，点击 "Add file" → "Upload files"
-2. 将 `aiclaw-city` 目录中的所有文件拖拽到上传区域
+2. 将 `AI Cloud-city` 目录中的所有文件拖拽到上传区域
 3. **重要**：不要上传 `README.md` 和 `LICENSE`（跳过这两个文件）
-4. 在提交信息中输入："feat: 添加完整的AIClaw City网站"
+4. 在提交信息中输入："feat: 添加完整的AI Cloud City网站"
 5. 点击 "Commit changes"
 
 ### 选项 B：使用 Git 命令行
@@ -26,16 +26,16 @@
 
 ```bash
 # 1. 解压文件
-tar -xzf aiclaw-city-latest.tar.gz
+tar -xzf AI Cloud-city-latest.tar.gz
 
 # 2. 进入目录
-cd aiclaw-city
+cd AI Cloud-city
 
 # 3. 克隆仓库
-git clone https://github.com/AiClawCity/AiClawCity.git
+git clone https://github.com/AI CloudCity/AI CloudCity.git
 
 # 4. 进入仓库目录
-cd AiClawCity
+cd AI CloudCity
 
 # 5. 备份原有的 README.md 和 LICENSE
 cp README.md README.md.backup
@@ -44,7 +44,7 @@ cp LICENSE LICENSE.backup
 # 6. 删除所有现有文件（除了 .git 目录）
 find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name 'README.md' ! -name 'LICENSE' -exec rm -rf {} \;
 
-# 7. 复制 AIClaw City 文件
+# 7. 复制 AI Cloud City 文件
 cp -r ../* .
 
 # 8. 恢复原有的 README.md 和 LICENSE
@@ -53,7 +53,7 @@ mv LICENSE.backup LICENSE
 
 # 9. 提交更改
 git add .
-git commit -m "feat: 添加完整的AIClaw City网站"
+git commit -m "feat: 添加完整的AI Cloud City网站"
 
 # 10. 推送到GitHub
 git push origin master
@@ -69,7 +69,7 @@ git push origin master
 
 ## 步骤 5：验证部署
 
-1. 访问：https://aiclawcity.github.io/AiClawCity/
+1. 访问：https://AI Cloudcity.github.io/AI CloudCity/
 2. 检查网站是否正常显示
 3. 测试所有页面功能
 

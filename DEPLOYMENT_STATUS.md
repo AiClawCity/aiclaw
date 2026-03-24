@@ -1,4 +1,4 @@
-# 📊 AIClaw City 部署状态报告
+# 📊 AI Cloud City 部署状态报告
 
 ## 🕐 报告时间：2026-03-14 16:50 GMT+8
 
@@ -32,27 +32,27 @@
 
 ### 方案1：一键自动部署 (推荐)
 ```bash
-cd /home/work/.openclaw/workspace/aiclaw-city
+cd /home/work/.openclaw/workspace/AI Cloud-city
 bash deploy-to-github.sh
 ```
 **特点**: 全自动，有引导，有错误处理
 
 ### 方案2：3命令快速部署
 ```bash
-cd /home/work/.openclaw/workspace/aiclaw-city
+cd /home/work/.openclaw/workspace/AI Cloud-city
 git add .
-git commit -m "部署AIClaw City"
+git commit -m "部署AI Cloud City"
 git push -u origin main
 ```
 **特点**: 快速，简单
 
 ### 方案3：手动部署
 1. 访问 https://github.com/new
-2. 创建 `aiclaw-city` 仓库
+2. 创建 `AI Cloud-city` 仓库
 3. 按照GitHub提供的命令推送
 
 ### 方案4：使用压缩包
-- 文件: `aiclaw-city-complete.tar.gz`
+- 文件: `AI Cloud-city-complete.tar.gz`
 - 包含: 所有网站文件和文档
 - 用途: 手动上传或备用方案
 
@@ -76,7 +76,7 @@ QUICK_DEPLOY.md         # 快速部署指南
 3-COMMAND-DEPLOY.md     # 极简部署方案
 GITHUB_DEPLOYMENT.md    # 详细部署指南
 DEPLOYMENT_PLAN.md      # 整体部署计划
-aiclaw-city-complete.tar.gz # 完整压缩包
+AI Cloud-city-complete.tar.gz # 完整压缩包
 ```
 
 ### 文档文件 (参考)
@@ -84,7 +84,7 @@ aiclaw-city-complete.tar.gz # 完整压缩包
 LICENSE                 # 许可证
 .gitignore             # Git配置
 config.json            # 配置文件
-AICLAW_PROJECT_PLAN.md # 项目计划
+AI Cloud_PROJECT_PLAN.md # 项目计划
 ```
 
 ## 🔧 技术规格
@@ -113,7 +113,7 @@ AICLAW_PROJECT_PLAN.md # 项目计划
 ## 🎯 成功标准
 
 ### GitHub推送成功
-- [ ] 仓库创建/确认: aiclaw-city
+- [ ] 仓库创建/确认: AI Cloud-city
 - [ ] 所有文件上传完成
 - [ ] 代码可正常访问
 - [ ] 文件内容正确
@@ -125,7 +125,7 @@ AICLAW_PROJECT_PLAN.md # 项目计划
 - [ ] 移动端显示正常
 
 ### 部署验证
-- [ ] 访问 https://github.com/aiclaw-city/aiclaw-city
+- [ ] 访问 https://github.com/AI Cloud-city/AI Cloud-city
 - [ ] 打开 `test-site.html` 验证
 - [ ] 检查部署报告
 
@@ -161,7 +161,7 @@ AICLAW_PROJECT_PLAN.md # 项目计划
 ### 紧急联系
 - 文档: 所有.md文件
 - 脚本: deploy-to-github.sh
-- 备份: aiclaw-city-complete.tar.gz
+- 备份: AI Cloud-city-complete.tar.gz
 
 ## 🎉 总结
 
@@ -172,7 +172,7 @@ AICLAW_PROJECT_PLAN.md # 项目计划
 
 **只需执行**:
 ```bash
-cd /home/work/.openclaw/workspace/aiclaw-city
+cd /home/work/.openclaw/workspace/AI Cloud-city
 bash deploy-to-github.sh
 ```
 

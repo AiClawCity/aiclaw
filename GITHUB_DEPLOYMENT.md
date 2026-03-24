@@ -1,4 +1,4 @@
-# AIClaw City GitHub 部署指南
+# AI Cloud City GitHub 部署指南
 
 ## 🎯 部署状态
 
@@ -21,7 +21,7 @@
 gh auth login
 
 # 2. 创建GitHub仓库（如果不存在）
-gh repo create aiclaw-city --public --description "AIClaw City - AI与机械爪的智慧城市" --source=. --remote=origin --push
+gh repo create AI Cloud-city --public --description "AI Cloud City - AI与机械爪的智慧城市" --source=. --remote=origin --push
 
 # 3. 或者如果仓库已存在，直接推送
 git push -u origin main
@@ -33,7 +33,7 @@ git push -u origin main
 
 ```bash
 # 1. 设置远程仓库（替换YOUR_TOKEN为您的GitHub Token）
-git remote add origin https://YOUR_TOKEN@github.com/aiclaw-city/aiclaw-city.git
+git remote add origin https://YOUR_TOKEN@github.com/AI Cloud-city/AI Cloud-city.git
 
 # 2. 推送代码
 git push -u origin main
@@ -43,14 +43,14 @@ git push -u origin main
 
 1. **在GitHub上创建仓库**：
    - 访问 https://github.com/new
-   - 仓库名: `aiclaw-city`
-   - 描述: "AIClaw City - AI与机械爪的智慧城市"
+   - 仓库名: `AI Cloud-city`
+   - 描述: "AI Cloud City - AI与机械爪的智慧城市"
    - 选择: Public（公开）
    - 不要初始化README、.gitignore或license
 
 2. **推送现有仓库**：
    ```bash
-   git remote add origin https://github.com/aiclaw-city/aiclaw-city.git
+   git remote add origin https://github.com/AI Cloud-city/AI Cloud-city.git
    git branch -M main
    git push -u origin main
    ```
@@ -75,7 +75,7 @@ git push -u origin main
 - `.gitignore` - Git忽略文件配置
 - `config.json` - 配置文件
 - `DEPLOYMENT_PLAN.md` - 部署计划
-- `AICLAW_PROJECT_PLAN.md` - 项目具体落地计划
+- `AI Cloud_PROJECT_PLAN.md` - 项目具体落地计划
 - `GITHUB_DEPLOYMENT.md` - 本部署指南
 
 ### 其他文件
@@ -112,22 +112,22 @@ git push -u origin main
 
 ## 🌐 域名配置
 
-域名已配置：`aiclaw.city`
+域名已配置：`AI Cloud.city`
 
 ### 部署到服务器步骤：
 1. **克隆GitHub仓库**到服务器：
    ```bash
-   git clone https://github.com/aiclaw-city/aiclaw-city.git
-   cd aiclaw-city
+   git clone https://github.com/AI Cloud-city/AI Cloud-city.git
+   cd AI Cloud-city
    ```
 
 2. **配置Web服务器**（Nginx示例）：
    ```nginx
    server {
        listen 80;
-       server_name aiclaw.city www.aiclaw.city;
+       server_name AI Cloud.city www.AI Cloud.city;
        
-       root /path/to/aiclaw-city;
+       root /path/to/AI Cloud-city;
        index index.html;
        
        # 启用gzip压缩
@@ -144,7 +144,7 @@ git push -u origin main
 
 3. **配置SSL证书**（使用Let's Encrypt）：
    ```bash
-   sudo certbot --nginx -d aiclaw.city -d www.aiclaw.city
+   sudo certbot --nginx -d AI Cloud.city -d www.AI Cloud.city
    ```
 
 ## 📊 测试结果
@@ -178,14 +178,14 @@ git push -u origin main
    git remote -v
    
    # 更新远程仓库URL
-   git remote set-url origin https://github.com/aiclaw-city/aiclaw-city.git
+   git remote set-url origin https://github.com/AI Cloud-city/AI Cloud-city.git
    
    # 强制推送（谨慎使用）
    git push -f origin main
    ```
 
 2. **网站无法访问**：
-   - 检查域名DNS解析：`nslookup aiclaw.city`
+   - 检查域名DNS解析：`nslookup AI Cloud.city`
    - 检查服务器防火墙：`sudo ufw status`
    - 检查Web服务器状态：`sudo systemctl status nginx`
 
@@ -202,8 +202,8 @@ git push -u origin main
 ## 📞 支持与帮助
 
 ### 技术支持
-- **GitHub Issues**: https://github.com/aiclaw-city/aiclaw-city/issues
-- **邮箱**: contact@aiclaw.city
+- **GitHub Issues**: https://github.com/AI Cloud-city/AI Cloud-city/issues
+- **邮箱**: contact@AI Cloud.city
 - **文档**: 查看项目README.md
 
 ### 紧急联系

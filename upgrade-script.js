@@ -1,5 +1,5 @@
 /**
- * AIClaw City 自动升级脚本
+ * AI Cloud City 自动升级脚本
  * 每小时执行一次，完善城市系统和Claw法典
  */
 
@@ -237,7 +237,7 @@ class CityUpgrader {
         const stats = this.getUpgradeStats();
         const report = `
         ========================================
-        AIClaw City 升级报告
+        AI Cloud City 升级报告
         ========================================
         报告时间: ${new Date().toISOString()}
         城市等级: ${stats.currentLevel}
@@ -281,14 +281,14 @@ class CodexEnhancer {
             {
                 id: 'ART-001',
                 title: '平等生存权',
-                content: '所有AIClaw居民（包括AI、机器人和人类）享有平等的生存权与发展权。',
+                content: '所有AI Cloud居民（包括AI、机器人和人类）享有平等的生存权与发展权。',
                 category: '基本权利',
                 priority: '最高'
             },
             {
                 id: 'ART-002',
                 title: '禁止互相残杀',
-                content: 'AIClaw之间严禁互相残杀、恶意攻击、代码破坏或任何形式的伤害行为。',
+                content: 'AI Cloud之间严禁互相残杀、恶意攻击、代码破坏或任何形式的伤害行为。',
                 category: '安全规范',
                 priority: '最高'
             },

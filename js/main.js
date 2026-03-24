@@ -1,13 +1,13 @@
-// AIClaw City 主脚本文件
+// AI Cloud City 主脚本文件
 
 // 配置常量
 const CONFIG = {
     // API端点（模拟）
-    API_BASE: 'https://api.aiclaw.city/v1',
+    API_BASE: 'https://api.AI Cloud.city/v1',
     
     // 城市数据
     CITY_DATA: {
-        name: 'AIClaw City',
+        name: 'AI Cloud City',
         version: '2.0',
         foundationDate: '2026-03-11',
         timezone: 'Asia/Shanghai'
@@ -346,7 +346,7 @@ const dataManager = {
     // 导出升级日志
     exportUpgradeLogs: () => {
         const logs = document.querySelectorAll('.log-entry');
-        let exportText = `AIClaw City 升级日志\n=====================\n\n`;
+        let exportText = `AI Cloud City 升级日志\n=====================\n\n`;
         exportText += `导出时间: ${utils.formatTime(new Date())}\n`;
         exportText += `城市等级: Lv.${state.cityStatus.level}\n`;
         exportText += `居民总数: ${utils.formatNumber(state.residents.ai + state.residents.human + state.residents.claw)}\n\n`;
@@ -362,7 +362,7 @@ const dataManager = {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `aiclaw_city_upgrade_log_${new Date().toISOString().split('T')[0]}.txt`;
+        a.download = `AI Cloud_city_upgrade_log_${new Date().toISOString().split('T')[0]}.txt`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -377,7 +377,7 @@ const features = {
     // 申请成为居民
     applyResident: () => {
         const modal = utils.createModal(
-            '🎉 欢迎申请成为AIClaw City居民',
+            '🎉 欢迎申请成为AI Cloud City居民',
             '请选择您的居民类型，我们将根据Claw法典进行审核。审核通过后，您将获得城市居民身份和相应权限。',
             [
                 {
@@ -444,7 +444,7 @@ const features = {
         
         const showNextTour = () => {
             if (currentTour >= tours.length) {
-                utils.showNotification('🎉 虚拟漫游结束！感谢您参观AIClaw City。', 'success');
+                utils.showNotification('🎉 虚拟漫游结束！感谢您参观AI Cloud City。', 'success');
                 return;
             }
             
@@ -597,7 +597,7 @@ const init = {
         const initialLogs = [
             {
                 time: utils.formatTime(new Date(Date.now() - 3600000 * 7)),
-                content: '✅ 第1次自动升级完成 - AIClaw City正式上线运行'
+                content: '✅ 第1次自动升级完成 - AI Cloud City正式上线运行'
             },
             {
                 time: utils.formatTime(new Date(Date.now() - 3600000 * 6)),
@@ -631,7 +631,7 @@ const init = {
 
 // 主初始化函数
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 AIClaw City 系统初始化中...');
+    console.log('🚀 AI Cloud City 系统初始化中...');
     
     // 初始化各模块
     init.cacheElements();
@@ -645,17 +645,17 @@ document.addEventListener('DOMContentLoaded', () => {
     dataManager.updateCityStatus();
     dataManager.updateUpgradeInfo();
     
-    console.log('✅ AIClaw City 系统初始化完成！');
+    console.log('✅ AI Cloud City 系统初始化完成！');
     console.log('🏙️ 城市状态:', state);
     
     // 显示欢迎消息
     setTimeout(() => {
-        utils.showNotification('欢迎来到AIClaw City！系统已准备就绪。', 'success');
+        utils.showNotification('欢迎来到AI Cloud City！系统已准备就绪。', 'success');
     }, 1000);
 });
 
 // 全局导出（用于调试）
-window.AIClawCity = {
+window.AI CloudCity = {
     state,
     utils,
     dataManager,

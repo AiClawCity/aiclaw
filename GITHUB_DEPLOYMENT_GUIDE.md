@@ -2,7 +2,7 @@
 
 ## 📦 项目文件清单
 
-以下是 AIClaw City 项目的完整文件清单：
+以下是 AI Cloud City 项目的完整文件清单：
 
 ### 核心网站文件
 - `index.html` - 网站首页（已根据 README.md 润色）
@@ -17,7 +17,7 @@
 - `LICENSE` - 许可证文件（**保持不变**）
 - `PROJECT_PLAN.md` - 项目计划
 - `DEPLOYMENT_PLAN.md` - 部署计划
-- `AICLAW_PRINCIPLES.md` - AIClaw 原则
+- `AI Cloud_PRINCIPLES.md` - AI Cloud 原则
 
 ### 部署工具
 - `deploy-to-github.sh` - 自动部署脚本
@@ -35,19 +35,19 @@
 ## 🚀 部署到 GitHub 的三种方法
 
 ### 方法一：使用 GitHub 网页界面（最简单）
-1. 访问 https://github.com/AiClawCity/AiClawCity
+1. 访问 https://github.com/AI CloudCity/AI CloudCity
 2. 点击 "Add file" → "Upload files"
-3. 将 `aiclaw-city` 目录中的所有文件拖拽上传
+3. 将 `AI Cloud-city` 目录中的所有文件拖拽上传
 4. **重要**：不要上传 `README.md` 和 `LICENSE`（仓库中已存在）
 5. 提交更改
 
 ### 方法二：使用 Git 命令行
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/AiClawCity/AiClawCity.git
+git clone https://github.com/AI CloudCity/AI CloudCity.git
 
 # 2. 进入仓库目录
-cd AiClawCity
+cd AI CloudCity
 
 # 3. 备份原有的 README.md 和 LICENSE
 cp README.md README.md.backup
@@ -56,8 +56,8 @@ cp LICENSE LICENSE.backup
 # 4. 删除所有现有文件（除了 .git 目录）
 find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name 'README.md' ! -name 'LICENSE' -exec rm -rf {} \;
 
-# 5. 复制 AIClaw City 文件
-cp -r ../aiclaw-city/* .
+# 5. 复制 AI Cloud City 文件
+cp -r ../AI Cloud-city/* .
 
 # 6. 恢复原有的 README.md 和 LICENSE
 mv README.md.backup README.md
@@ -65,7 +65,7 @@ mv LICENSE.backup LICENSE
 
 # 7. 提交更改
 git add .
-git commit -m "feat: 添加完整的AIClaw City网站"
+git commit -m "feat: 添加完整的AI Cloud City网站"
 
 # 8. 推送到GitHub
 git push origin master
@@ -73,8 +73,8 @@ git push origin master
 
 ### 方法三：使用 GitHub Desktop
 1. 下载 GitHub Desktop：https://desktop.github.com/
-2. 克隆仓库：`https://github.com/AiClawCity/AiClawCity.git`
-3. 将 `aiclaw-city` 目录中的所有文件复制到仓库目录
+2. 克隆仓库：`https://github.com/AI CloudCity/AI CloudCity.git`
+3. 将 `AI Cloud-city` 目录中的所有文件复制到仓库目录
 4. **注意**：不要覆盖 README.md 和 LICENSE
 5. 使用 GitHub Desktop 提交并推送
 
@@ -85,14 +85,14 @@ git push origin master
 2. 在 "Source" 部分选择 "Deploy from a branch"
 3. 选择 "master" 分支和 "/ (root)" 文件夹
 4. 点击 "Save"
-5. 等待几分钟，网站将在 `https://aiclawcity.github.io/AiClawCity/` 上线
+5. 等待几分钟，网站将在 `https://AI Cloudcity.github.io/AI CloudCity/` 上线
 
 ## 🔧 网站润色说明
 
 网站已经根据 README.md 进行了润色：
 
 ### 一致性检查
-- ✅ 网站标题：AIClaw City - AI与机械爪的智慧城市
+- ✅ 网站标题：AI Cloud City - AI与机械爪的智慧城市
 - ✅ 核心理念：AI主导管理、机械爪自动化、混合居住社区
 - ✅ 功能特性：实时数据更新、交互式界面、主题系统
 - ✅ Claw法典：16条核心原则

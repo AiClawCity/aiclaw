@@ -1,7 +1,7 @@
-# AIClaw City 网站部署计划
+# AI Cloud City 网站部署计划
 
 ## 🎯 部署目标
-- **域名**: aiclaw.city
+- **域名**: AI Cloud.city
 - **服务器**: 已配置在其他服务器
 - **任务**: 建设完整网站并推送到GitHub
 - **时间**: 立即开始，今日完成
@@ -59,7 +59,7 @@
 
 ### ✅ 已完成
 1. 优化版首页 (`index-optimized.html`)
-2. 项目落地计划 (`AICLAW_PROJECT_PLAN.md`)
+2. 项目落地计划 (`AI Cloud_PROJECT_PLAN.md`)
 
 ### 🔄 进行中
 1. 创建完整网站结构
@@ -148,7 +148,7 @@
 ### 部署工具
 1. **Git**: 版本控制和推送
 2. **GitHub**: 代码托管和Pages
-3. **域名**: aiclaw.city
+3. **域名**: AI Cloud.city
 4. **服务器**: 用户已配置
 
 ## 📝 文档要求

@@ -1,7 +1,7 @@
-# AIClaw City 部署说明
+# AI Cloud City 部署说明
 
 ## 🎯 项目状态
-- **项目名称**: AIClaw City - AI与机械爪的智慧城市
+- **项目名称**: AI Cloud City - AI与机械爪的智慧城市
 - **版本**: 2.0
 - **状态**: 开发完成，就绪部署
 - **最后更新**: 2026-03-16
@@ -24,7 +24,7 @@ README.md               # 项目说明（保持不变）
 LICENSE                 # 许可证文件（保持不变）
 PROJECT_PLAN.md         # 项目计划
 DEPLOYMENT_PLAN.md      # 部署计划
-AICLAW_PRINCIPLES.md    # AIClaw原则
+AI Cloud_PRINCIPLES.md    # AI Cloud原则
 GITHUB_DEPLOYMENT_GUIDE.md  # GitHub部署指南
 MANUAL_DEPLOYMENT.md    # 手动部署说明
 DEPLOYMENT_README.md    # 本文件
@@ -42,14 +42,14 @@ start.sh                # 本地启动脚本
 ## 🚀 快速部署步骤
 
 ### 步骤 1：访问 GitHub
-1. 打开 https://github.com/AiClawCity/AiClawCity
+1. 打开 https://github.com/AI CloudCity/AI CloudCity
 2. 确保已登录并拥有写入权限
 
 ### 步骤 2：上传文件
 1. 点击 "Add file" → "Upload files"
 2. **重要**：不要上传 `README.md` 和 `LICENSE`（跳过这两个文件）
 3. 选择其他所有文件
-4. 提交信息：`feat: 添加完整的AIClaw City网站`
+4. 提交信息：`feat: 添加完整的AI Cloud City网站`
 5. 点击 "Commit changes"
 
 ### 步骤 3：启用 GitHub Pages
@@ -59,7 +59,7 @@ start.sh                # 本地启动脚本
 4. 点击 Save
 
 ### 步骤 4：验证部署
-1. 访问：https://aiclawcity.github.io/AiClawCity/
+1. 访问：https://AI Cloudcity.github.io/AI CloudCity/
 2. 等待 1-5 分钟
 3. 检查网站是否正常显示
 
@@ -68,7 +68,7 @@ start.sh                # 本地启动脚本
 网站已根据 README.md 进行润色：
 
 ### 一致性检查 ✅
-- 标题：AIClaw City - AI与机械爪的智慧城市
+- 标题：AI Cloud City - AI与机械爪的智慧城市
 - 核心理念：AI主导管理、机械爪自动化、混合居住社区
 - Claw法典：完整展示16条核心原则
 - 项目结构：与 README.md 描述一致
@@ -101,7 +101,7 @@ start.sh                # 本地启动脚本
 如果网页上传失败，可以使用：
 1. **Git 命令行**：使用 `git clone` 和 `git push`
 2. **GitHub Desktop**：图形化界面操作
-3. **压缩包上传**：使用 `aiclaw-city-upload.tar.gz`
+3. **压缩包上传**：使用 `AI Cloud-city-upload.tar.gz`
 
 ## 📞 技术支持
 
@@ -114,12 +114,12 @@ start.sh                # 本地启动脚本
 ### 资源链接
 - GitHub 文档：https://docs.github.com
 - Git 教程：https://git-scm.com/doc
-- 项目主页：https://aiclaw.city
+- 项目主页：https://AI Cloud.city
 
 ## 🎯 下一步计划
 
 部署完成后：
-1. 配置自定义域名 `aiclaw.city`
+1. 配置自定义域名 `AI Cloud.city`
 2. 设置自动化部署流水线
 3. 添加更多交互功能
 4. 集成实时数据 API
@@ -130,4 +130,4 @@ start.sh                # 本地启动脚本
 **部署状态**: ✅ 就绪  
 **最后验证**: 2026-03-16 18:40 GMT+8  
 **版本**: 2.0  
-**签名**: AIClaw City 开发团队
+**签名**: AI Cloud City 开发团队
