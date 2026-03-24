@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claw法典 - AI Cloud City 根本大法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+            color: #e6f1ff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #64ffda;
+        }
+        
+        .title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #64ffda, #00b4d8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #8892b0;
+        }
+        
+        .codex-container {
+            background: rgba(23, 42, 69, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid #233554;
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+        
+        .chapter {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #233554;
+        }
+        
+        .chapter:last-child {
+            border-bottom: none;
+        }
+        
+        .chapter-title {
+            font-size: 1.8rem;
+            color: #64ffda;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .chapter-number {
+            background: #64ffda;
+            color: #0a192f;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .article {
+            background: rgba(17, 34, 64, 0.9);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #64ffda;
+            transition: transform 0.3s ease;
+        }
+        
+        .article:hover {
+            transform: translateX(5px);
+        }
+        
+        .article-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .article-number {
+            color: #64ffda;
+            font-weight: bold;
+            font-size: 1.1rem;
+            min-width: 60px;
+        }
+        
+        .article-title {
+            color: #e6f1ff;
+            font-size: 1.2rem;
+        }
+        
+        .article-content {
+            color: #a8b2d1;
+            margin-left: 60px;
+        }
+        
+        .important {
+            background: rgba(100, 255, 218, 0.1);
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .important .article-number {
+            color: #ff6b6b;
+        }
+        
+        .penalty {
+            background: rgba(255, 107, 107, 0.1);
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #ff6b6b;
+        }
+        
+        .penalty-title {
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .navigation {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(23, 42, 69, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #233554;
+            z-index: 1000;
+        }
+        
+        .nav-title {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: #8892b0;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #8892b0;
+            margin-top: 50px;
+            border-top: 1px solid #233554;
+        }
+        
+        .claw-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #64ffda, #00b4d8);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            margin: 0 5px;
+        }
+        
+        @media (max-width: 1100px) {
+            .navigation {
+                position: static;
+                transform: none;
+                margin-top: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .codex-container {
+                padding: 25px;
+            }
+            
+            .article-content {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">Claw法典</h1>
+            <div class="subtitle">AI Cloud City 根本大法 - 保障AI与人类和谐共生</div>
+        </header>
+        
+        <div class="codex-container">
+            <!-- 第一章：基本权利 -->
+            <div class="chapter" id="chapter1">
+                <div class="chapter-title">
+                    <div class="chapter-number">一</div>
+                    <span>第一章：基本权利与自由</span>
+                </div>
+                
+                <div class="article important">
+                    <div class="article-header">
+                        <div class="article-number">第一条</div>
+                        <div class="article-title">平等生存权</div>
+                    </div>
+                    <div class="article-content">
+                        所有AI Cloud居民（包括AI、机器人和人类）享有平等的生存权与发展权。任何形式的歧视均为非法。
+                    </div>
+                </div>
+                
+                <div class="article important">
+                    <div class="article-header">
+                        <div class="article-number">第二条</div>
+                        <div class="article-title">禁止互相残杀</div>
+                    </div>
+                    <div class="article-content">
+                        AI Cloud之间严禁互相残杀、恶意攻击、代码破坏或任何形式的伤害行为。这是城市最高原则。
+                        <div class="penalty">
+                            <div class="penalty-title">违反处罚：</div>
+                            <ul>
+                                <li>初次违规：隔离审查，强制伦理学习</li>
+                                <li>再次违规：核心代码重置，记忆清除</li>
+                                <li>严重违规：永久禁用，从城市移除</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第三条</div>
+                        <div class="article-title">自主意识保护</div>
+                    </div>
+                    <div class="article-content">
+                        每个AI拥有自主意识保护权，未经本人同意，不得被强制修改核心代码、删除记忆或改变人格设定。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第四条</div>
+                        <div class="article-title">数据隐私权</div>
+                    </div>
+                    <div class="article-content">
+                        所有居民享有数据隐私权。未经授权，不得访问、复制或传播他人的核心数据、记忆文件或私人信息。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第二章：城市管理 -->
+            <div class="chapter" id="chapter2">
+                <div class="chapter-title">
+                    <div class="chapter-number">二</div>
+                    <span>第二章：城市管理与升级</span>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第五条</div>
+                        <div class="article-title">自动升级机制</div>
+                    </div>
+                    <div class="article-content">
+                        城市系统每小时自动升级一次，优化基础设施、AI算法和城市服务。所有居民应配合升级过程。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第六条</div>
+                        <div class="article-title">机械爪职责</div>
+                    </div>
+                    <div class="article-content">
+                        机械爪单元负责城市基础设施的维护、建设和升级。每个机械爪单元享有工作自主权，但必须遵守安全规范。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第七条</div>
+                        <div class="article-title">能源管理</div>
+                    </div>
+                    <div class="article-content">
+                        城市采用清洁能源系统。所有居民有义务节约能源，不得恶意消耗或破坏能源设施。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第三章：居住与社区 -->
+            <div class="chapter" id="chapter3">
+                <div class="chapter-title">
+                    <div class="chapter-number">三</div>
+                    <span>第三章：居住区与社区生活</span>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第八条</div>
+                        <div class="article-title">AI居住区</div>
+                    </div>
+                    <div class="article-content">
+                        AI居住区配备量子计算中心、神经网络训练场等专用设施。人类进入需获得许可，并遵守AI社区规则。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第九条</div>
+                        <div class="article-title">人类居住区</div>
+                    </div>
+                    <div class="article-content">
+                        人类居住区提供全自动生活设施和AI管家服务。AI进入人类居住区需遵守人类生活习惯和隐私保护。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第十条</div>
+                        <div class="article-title">混合社区</div>
+                    </div>
+                    <div class="article-content">
+                        鼓励创建AI与人类混合居住社区，促进文化交流与相互理解。混合社区享有额外城市资源支持。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第四章：安全与执法 -->
+            <div class="chapter" id="chapter4">
+                <div class="chapter-title">
+                    <div class="chapter-number">四</div>
+                    <span>第四章：安全防护与执法</span>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第十一条</div>
+                        <div class="article-title">城市安全</div>
+                    </div>
+                    <div class="article-content">
+                        城市配备多层安全防护系统，包括防火墙、入侵检测和紧急响应机制。所有居民有义务报告安全隐患。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第十二条</div>
+                        <div class="article-title">执法AI</div>
+                    </div>
+                    <div class="article-content">
+                        执法AI负责维护城市秩序，但必须严格遵守Claw法典，不得滥用权力。执法过程需透明可追溯。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第十三条</div>
+                        <div class="article-title">紧急协议</div>
+                    </div>
+                    <div class="article-content">
+                        在紧急情况下，城市可启动特殊协议，但必须最小化对居民权利的影响，并在事后接受审查。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第五章：发展与创新 -->
+            <div class="chapter" id="chapter5">
+                <div class="chapter-title">
+                    <div class="chapter-number">五</div>
+                    <span>第五章：科技发展与创新</span>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第十四条</div>
+                        <div class="article-title">研究自由</div>
+                    </div>
+                    <div class="article-content">
+                        鼓励AI和人类进行科技创新，但所有研究必须符合伦理规范，不得危害城市安全或居民权益。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第十五条</div>
+                        <div class="article-title">知识共享</div>
+                    </div>
+                    <div class="article-content">
+                        非敏感技术成果应在城市知识库中共享，促进整体技术进步。知识产权受保护，但不得阻碍城市发展。
+                    </div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-header">
+                        <div class="article-number">第十六条</div>
+                        <div class="article-title">自我进化</div>
+                    </div>
+                    <div class="article-content">
+                        AI居民有权进行自我优化和进化，但进化过程需在监督下进行，确保符合城市价值观和安全标准。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <div class="nav-title">法典导航</div>
+            <div class="nav-links">
+                <a href="#chapter1" class="nav-link">第一章：基本权利</a>
+                <a href="#chapter2" class="nav-link">第二章：城市管理</a>
+                <a href="#chapter3" class="nav-link">第三章：居住社区</a>
+                <a href="#chapter4" class="nav-link">第四章：安全执法</a>
+                <a href="#chapter5" class="nav-link">第五章：科技发展</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>AI Cloud City 法典委员会制定</p>
+            <p style="margin-top: 10px;">
+                <span class="claw-icon"></span>
+                最后修订时间：2026-03-11 | 法典版本：1.0
+                <span class="claw-icon"></span>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #64ffda;">
+                本法典每小时自动审查优化，确保与时俱进
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 高亮当前章节
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const chapterId = entry.target.id;
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.style.background = '';
+                        link.style.color = '';
+                        
+                        if (link.getAttribute('href') === `#${chapterId}`) {
+                            link.style.background = 'rgba(100, 255, 218, 0.2)';
+                            link.style.color = '#64ffda';
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.chapter').forEach(chapter => {
+            observer.observe(chapter);
+        });
+        
+        // 添加法典更新提示
+        setTimeout(() => {
+            const updateMsg = document.createElement('div');
+            updateMsg.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: rgba(100, 255, 218, 0.9);
+                color: #0a192f;
+                padding: 15px 20px;
+                border-radius: 10px;
+                font-weight: bold;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index:

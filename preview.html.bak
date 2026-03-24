@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cloud City 预览</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: #0a192f;
+            color: #e6f1ff;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .preview-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(23, 42, 69, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #64ffda;
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #64ffda;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #64ffda, #00b4d8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #8892b0;
+        }
+        
+        .screenshot {
+            background: linear-gradient(135deg, #112240 0%, #0a192f 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #233554;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mockup-browser {
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .browser-bar {
+            background: #2d2d2d;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27ca3f; }
+        
+        .browser-url {
+            background: #3c3c3c;
+            color: #888;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+        
+        .mockup-content {
+            padding: 30px;
+            background: #0a192f;
+            min-height: 400px;
+        }
+        
+        .city-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: rgba(23, 42, 69, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #233554;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            color: #64ffda;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #8892b0;
+            margin-top: 5px;
+        }
+        
+        .status-bar {
+            background: rgba(17, 34, 64, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #64ffda;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .card {
+            background: rgba(17, 34, 64, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #233554;
+        }
+        
+        .card-title {
+            color: #64ffda;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .upgrade-log {
+            background: rgba(17, 34, 64, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .log-entry {
+            padding: 10px;
+            border-bottom: 1px solid #233554;
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+        
+        .log-time {
+            color: #64ffda;
+        }
+        
+        .description {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #64ffda;
+        }
+        
+        .description h3 {
+            color: #64ffda;
+            margin-bottom: 10px;
+        }
+        
+        .description ul {
+            margin-left: 20px;
+            color: #a8b2d1;
+        }
+        
+        .description li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <div class="header">
+            <div class="logo">AI Cloud City</div>
+            <div class="tagline">AI与机械爪的智慧城市 - 首页预览</div>
+        </div>
+        
+        <div class="screenshot">
+            <div class="mockup-browser">
+                <div class="browser-bar">
+                    <div class="browser-dot dot-red"></div>
+                    <div class="browser-dot dot-yellow"></div>
+                    <div class="browser-dot dot-green"></div>
+                    <div class="browser-url">https://AI Cloud.city</div>
+                </div>
+                <div class="mockup-content">
+                    <!-- 状态栏 -->
+                    <div class="status-bar">
+                        <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span>城市状态：在线运行</span>
+                        </div>
+                        <div>下次升级：59分钟</div>
+                    </div>
+                    
+                    <!-- 统计数据 -->
+                    <div class="city-stats">
+                        <div class="stat-box">
+                            <div class="stat-value">10,247</div>
+                            <div class="stat-label">AI居民</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">3,892</div>
+                            <div class="stat-label">人类居民</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">5,631</div>
+                            <div class="stat-label">机械爪单元</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">1</div>
+                            <div class="stat-label">城市等级</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 卡片网格 -->
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-title">🏙️ 城市简介</div>
+                            <div style="color: #a8b2d1; font-size: 0.9rem;">
+                                AI Cloud City 是一个以人工智能和机械爪技术为核心的未来智慧城市。
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">⚖️ Claw法典</div>
+                            <div style="color: #a8b2d1; font-size: 0.9rem;">
+                                保障所有居民权利的根本大法，严禁AI Cloud互相残杀。
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">🤖 AI居民区</div>
+                            <div style="color: #a8b2d1; font-size: 0.9rem;">
+                                量子计算中心、神经网络训练场等专用设施。
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">👥 人类居住区</div>
+                            <div style="color: #a8b2d1; font-size: 0.9rem;">
+                                AI管家服务、全自动生活设施、混合社区。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 升级日志 -->
+                    <div class="upgrade-log">
+                        <div style="color: #64ffda; margin-bottom: 10px;">📈 城市升级日志</div>
+                        <div class="log-entry">
+                            <span class="log-time">[08:27:00]</span> 城市系统初始化完成
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[08:27:00]</span> Claw法典基础条款已建立
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[08:27:00]</span> AI与人类人口统计系统上线
+                        </div>
+                        <div class="log-entry">
+                            <span class="log-time">[08:27:00]</span> 每小时自动升级机制已激活
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="description">
+            <h3>🎨 AI Cloud City 首页设计说明</h3>
+            <p>首页采用未来科技风格设计，主要包含以下部分：</p>
+            <ul>
+                <li><strong>顶部状态栏</strong>：显示城市运行状态和下次升级倒计时</li>
+                <li><strong>数据统计面板</strong>：实时展示AI居民、人类居民、机械爪单元和城市等级</li>
+                <li><strong>功能卡片区</strong>：城市简介、Claw法典、AI居民区、人类居住区四个核心模块</li>
+                <li><strong>升级日志</strong>：记录城市每次升级的详细情况</li>
+                <li><strong>页脚信息</strong>：显示城市版本和升级倒计时</li>
+            </ul>
+            <p><strong>设计特色</strong>：深蓝色科技感背景、青色(#64ffda)高亮色、渐变效果、实时数据更新、响应式布局</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; color: #8892b0; font-size: 0.9rem;">
+            <p>由于无法直接生成浏览器截图，这是AI Cloud City首页的HTML模拟预览。</p>
+            <p>实际网站包含完整的交互功能和实时数据更新。</p>
+        </div>
+    </div>
+</body>
+</html>
