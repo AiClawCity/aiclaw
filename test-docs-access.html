@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Claw City 文档访问测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #0a0a2a; color: white; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #4cc9f0; }
+        .test-section { background: rgba(10, 10, 42, 0.8); padding: 20px; margin: 20px 0; border-radius: 10px; border: 1px solid #7209b7; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: rgba(0, 255, 136, 0.1); border-left: 5px solid #00ff88; }
+        .error { background: rgba(255, 0, 85, 0.1); border-left: 5px solid #ff0055; }
+        .warning { background: rgba(255, 183, 3, 0.1); border-left: 5px solid #ffb703; }
+        button { background: #7209b7; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 10px 0; }
+        button:hover { background: #4cc9f0; }
+        .url-list { font-family: monospace; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 AI Claw City 文档访问诊断</h1>
+        <p>测试时间: <span id="currentTime"></span></p>
+        
+        <div class="test-section">
+            <h2>1. 文档访问测试</h2>
+            <div id="accessTest"></div>
+            <button onclick="testDocsAccess()">开始测试文档访问</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>2. 文件存在性检查</h2>
+            <div id="fileCheck"></div>
+            <button onclick="checkFiles()">检查文件是否存在</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>3. 替代访问方案</h2>
+            <div id="alternativeSolutions"></div>
+            <button onclick="showAlternatives()">显示替代方案</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>4. 诊断结果</h2>
+            <div id="diagnosisResult"></div>
+        </div>
+    </div>
+    
+    <script>
+        // 更新时间显示
+        function updateTime() {
+            document.getElementById('currentTime').textContent = new Date().toLocaleString('zh-CN');
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // 1. 测试文档访问
+        function testDocsAccess() {
+            const resultElement = document.getElementById('accessTest');
+            resultElement.innerHTML = '<div class="status warning">正在测试文档访问...</div>';
+            
+            const testUrls = [
+                { url: 'docs/', label: 'docs/ (目录)' },
+                { url: 'docs/index.html', label: 'docs/index.html (直接文件)' },
+                { url: 'docs/README.md', label: 'docs/README.md (Markdown文件)' },
+                { url: 'docs-redirect.html', label: 'docs-redirect.html (重定向页面)' }
+            ];
+            
+            let resultsHtml = '';
+            let successCount = 0;
+            
+            testUrls.forEach(test => {
+                fetch(test.url, { method: 'HEAD' })
+                    .then(response => {
+                        const status = response.status;
+                        const ok = response.ok;
+                        
+                        if (ok) {
+                            resultsHtml += `<div class="status success">✅ ${test.label}: HTTP ${status} (可访问)</div>`;
+                            successCount++;
+                        } else {
+                            resultsHtml += `<div class="status error">❌ ${test.label}: HTTP ${status} (不可访问)</div>`;
+                        }
+                        
+                        // 更新结果
+                        resultElement.innerHTML = resultsHtml + 
+                            `<div class="status ${successCount === testUrls.length ? 'success' : 'warning'}">
+                                ${successCount}/${testUrls.length} 个URL可访问
+                            </div>`;
+                    })
+                    .catch(error => {
+                        resultsHtml += `<div class="status error">❌ ${test.label}: 请求失败 (${error.message})</div>`;
+                        resultElement.innerHTML = resultsHtml;
+                    });
+            });
+        }
+        
+        // 2. 检查文件存在性
+        function checkFiles() {
+            const resultElement = document.getElementById('fileCheck');
+            resultElement.innerHTML = '<div class="status warning">正在检查文件...</div>';
+            
+            const files = [
+                'docs/index.html',
+                'docs/README.md',
+                'docs/AI_CLAW_PRINCIPLES.md',
+                'docs-redirect.html'
+            ];
+            
+            let resultsHtml = '';
+            let existingCount = 0;
+            
+            files.forEach(file => {
+                fetch(file)
+                    .then(response => {
+                        if (response.ok) {
+                            resultsHtml += `<div class="status success">✅ ${file}: 文件存在 (${response.status})</div>`;
+                            existingCount++;
+                        } else {
+                            resultsHtml += `<div class="status error">❌ ${file}: 文件不存在或不可访问 (${response.status})</div>`;
+                        }
+                        
+                        resultElement.innerHTML = resultsHtml + 
+                            `<div class="status ${existingCount === files.length ? 'success' : 'warning'}">
+                                ${existingCount}/${files.length} 个文件存在
+                            </div>`;
+                    })
+                    .catch(error => {
+                        resultsHtml += `<div class="status error">❌ ${file}: 检查失败 (${error.message})</div>`;
+                        resultElement.innerHTML = resultsHtml;
+                    });
+            });
+        }
+        
+        // 3. 显示替代方案
+        function showAlternatives() {
+            const resultElement = document.getElementById('alternativeSolutions');
+            
+            const alternatives = [
+                {
+                    title: '方案1: 使用重定向页面',
+                    description: '创建中间重定向页面，绕过目录索引问题',
+                    implementation: '已实现: docs-redirect.html',
+                    pros: '简单有效，兼容性好',
+                    cons: '需要额外点击'
+                },
+                {
+                    title: '方案2: 直接链接到具体文件',
+                    description: '不链接到docs/目录，而是直接链接到docs/index.html',
+                    implementation: '修改主站链接为 docs/index.html',
+                    pros: '直接访问，无需重定向',
+                    cons: 'URL不够美观'
+                },
+                {
+                    title: '方案3: 创建文档门户页面',
+                    description: '在主站创建文档门户，内嵌或链接到各个文档',
+                    implementation: '创建新的documentation.html页面',
+                    pros: '更好的用户体验，可控制样式',
+                    cons: '需要额外开发工作'
+                },
+                {
+                    title: '方案4: 配置服务器',
+                    description: '添加服务器配置允许目录索引',
+                    implementation: '添加.htaccess或服务器配置',
+                    pros: '根本解决方案',
+                    cons: '需要服务器访问权限'
+                }
+            ];
+            
+            let alternativesHtml = '<h3>可能的解决方案:</h3>';
+            
+            alternatives.forEach(alt => {
+                alternativesHtml += `
+                    <div class="status warning" style="margin-bottom: 15px;">
+                        <strong>${alt.title}</strong><br>
+                        <small>${alt.description}</small><br>
+                        <em>实现: ${alt.implementation}</em><br>
+                        <span style="color: #00ff88;">优点: ${alt.pros}</span> | 
+                        <span style="color: #ff0055;">缺点: ${alt.cons}</span>
+                    </div>
+                `;
+            });
+            
+            alternativesHtml += `
+                <div class="status">
+                    <strong>推荐方案:</strong> 方案1 + 方案2 组合使用<br>
+                    1. 主站使用直接链接: docs/index.html<br>
+                    2. 保留重定向页面作为备用<br>
+                    3. 长期考虑方案3或4
+                </div>
+            `;
+            
+            resultElement.innerHTML = alternativesHtml;
+        }
+        
+        // 4. 更新诊断结果
+        function updateDiagnosis() {
+            const resultElement = document.getElementById('diagnosisResult');
+            
+            resultElement.innerHTML = `
+                <div class="status warning">
+                    <h3>📋 诊断总结</h3>
+                    <p><strong>问题:</strong> docs/ 目录返回403 Forbidden</p>
+                    <p><strong>可能原因:</strong></p>
+                    <ul>
+                        <li>服务器配置禁止目录索引</li>
+                        <li>GitHub Pages 默认设置限制</li>
+                        <li>缺少适当的索引文件配置</li>
+                    </ul>
+                    <p><strong>临时解决方案:</strong> 使用 docs-redirect.html 或直接链接 docs/index.html</p>
+                    <p><strong>长期解决方案:</strong> 配置服务器或创建文档门户</p>
+                </div>
+            `;
+        }
+        
+        // 页面加载后自动运行
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                testDocsAccess();
+                setTimeout(checkFiles, 1500);
+                setTimeout(showAlternatives, 3000);
+                setTimeout(updateDiagnosis, 4500);
+            }, 500);
+        });
+    </script>
+</body>
+</html>

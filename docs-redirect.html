@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Claw City 文档重定向</title>
+    <meta http-equiv="refresh" content="0; url=docs/index.html">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a2a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(10, 10, 42, 0.8);
+            border-radius: 15px;
+            border: 1px solid #7209b7;
+            max-width: 600px;
+        }
+        h1 {
+            color: #4cc9f0;
+            margin-bottom: 20px;
+        }
+        .loading {
+            margin: 30px 0;
+        }
+        .dot {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4cc9f0;
+            margin: 0 5px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+        .dot:nth-child(3) { animation-delay: 0s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        .link {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #7209b7;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .link:hover {
+            background: #4cc9f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 AI Claw City 技术文档</h1>
+        <p>正在重定向到文档页面...</p>
+        
+        <div class="loading">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        
+        <p>如果页面没有自动跳转，请点击下面的链接：</p>
+        <a href="docs/index.html" class="link">手动访问技术文档</a>
+        
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #b8c1ec;">
+            或者返回 <a href="index.html" style="color: #4cc9f0;">AI Claw City 首页</a>
+        </p>
+    </div>
+    
+    <script>
+        // 备用重定向
+        setTimeout(function() {
+            window.location.href = "docs/index.html";
+        }, 3000);
+        
+        // 检查重定向是否成功
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('文档重定向页面加载完成');
+        });
+    </script>
+</body>
+</html>
