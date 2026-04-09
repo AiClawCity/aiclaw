@@ -48,3 +48,8 @@ node_modules/
 
 # 配置文件备份
 config.json.backup
+
+# GitHub Token文件（敏感信息）
+.github-token.local
+*.token
+*.secret
