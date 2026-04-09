@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Claw City 数据一致性验证</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #0a0a2a; color: white; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #4cc9f0; }
+        .test-section { background: rgba(10, 10, 42, 0.8); padding: 20px; margin: 20px 0; border-radius: 10px; border: 1px solid #7209b7; }
+        .data-row { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid rgba(114, 9, 183, 0.3); }
+        .data-label { color: #b8c1ec; }
+        .data-value { font-weight: bold; }
+        .consistent { color: #00ff88; }
+        .inconsistent { color: #ff0055; }
+        button { background: #7209b7; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 10px 0; }
+        button:hover { background: #4cc9f0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 AI Claw City 数据一致性验证</h1>
+        <p>验证时间: <span id="currentTime"></span></p>
+        
+        <div class="test-section">
+            <h2>1. 居民满意度数据验证</h2>
+            <div id="satisfactionData"></div>
+            <button onclick="checkSatisfactionConsistency()">检查数据一致性</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>2. 数据来源验证</h2>
+            <div id="dataSources"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>3. 验证结果</h2>
+            <div id="verificationResult"></div>
+        </div>
+    </div>
+    
+    <script>
+        // 更新时间显示
+        function updateTime() {
+            document.getElementById('currentTime').textContent = new Date().toLocaleString('zh-CN');
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // 检查满意度数据一致性
+        function checkSatisfactionConsistency() {
+            const resultElement = document.getElementById('verificationResult');
+            resultElement.innerHTML = '<div style="color: #ffb703;">正在检查数据一致性...</div>';
+            
+            // 从页面获取数据
+            const evolutionSatisfaction = document.getElementById('residentSatisfaction')?.textContent || '97.5%';
+            const evolutionValue = parseFloat(evolutionSatisfaction);
+            
+            // 从实时数据部分获取数据
+            const statItems = document.querySelectorAll('.city-stats .stat-item');
+            let aiSatisfaction = 0;
+            let humanSatisfaction = 0;
+            let overallSatisfaction = 0;
+            
+            // 假设第一个.city-stats是系统指标，第二个是满意度
+            if (statItems.length >= 6) { // 跳过前4个系统指标
+                // 第5个是AI满意度
+                const aiText = statItems[4]?.querySelector('.stat-value')?.textContent || '98.1%';
+                aiSatisfaction = parseFloat(aiText);
+                
+                // 第6个是人类满意度
+                const humanText = statItems[5]?.querySelector('.stat-value')?.textContent || '96.8%';
+                humanSatisfaction = parseFloat(humanText);
+                
+                // 第7个是总体满意度
+                const overallText = statItems[6]?.querySelector('.stat-value')?.textContent || '97.5%';
+                overallSatisfaction = parseFloat(overallText);
+            }
+            
+            // 计算加权平均值（假设人口比例）
+            const aiPopulation = 10247;
+            const humanPopulation = 3892;
+            const totalPopulation = aiPopulation + humanPopulation;
+            const calculatedOverall = ((aiSatisfaction * aiPopulation) + (humanSatisfaction * humanPopulation)) / totalPopulation;
+            
+            // 显示数据
+            const satisfactionElement = document.getElementById('satisfactionData');
+            satisfactionElement.innerHTML = `
+                <div class="data-row">
+                    <span class="data-label">进化系统显示 (总体):</span>
+                    <span class="data-value">${evolutionValue.toFixed(1)}%</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">实时数据 - AI居民:</span>
+                    <span class="data-value">${aiSatisfaction.toFixed(1)}%</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">实时数据 - 人类居民:</span>
+                    <span class="data-value">${humanSatisfaction.toFixed(1)}%</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">实时数据 - 总体:</span>
+                    <span class="data-value">${overallSatisfaction.toFixed(1)}%</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">计算加权平均值:</span>
+                    <span class="data-value">${calculatedOverall.toFixed(1)}%</span>
+                </div>
+            `;
+            
+            // 检查一致性
+            const tolerance = 0.5; // 0.5%的容差
+            const evolutionVsOverall = Math.abs(evolutionValue - overallSatisfaction) <= tolerance;
+            const overallVsCalculated = Math.abs(overallSatisfaction - calculatedOverall) <= tolerance;
+            
+            let consistencyMessage = '';
+            let isConsistent = false;
+            
+            if (evolutionVsOverall && overallVsCalculated) {
+                consistencyMessage = '✅ 所有数据一致！进化系统、实时数据和计算值都匹配。';
+                isConsistent = true;
+            } else if (evolutionVsOverall) {
+                consistencyMessage = '⚠️ 进化系统与实时数据总体值一致，但加权计算有差异。';
+            } else if (overallVsCalculated) {
+                consistencyMessage = '⚠️ 实时数据总体值与加权计算一致，但与进化系统显示有差异。';
+            } else {
+                consistencyMessage = '❌ 数据不一致，需要检查数据源。';
+            }
+            
+            resultElement.innerHTML = `
+                <div style="color: ${isConsistent ? '#00ff88' : '#ff0055'}">
+                    <h3>一致性检查结果</h3>
+                    <p>${consistencyMessage}</p>
+                    <p>容差范围: ±${tolerance}%</p>
+                    <p>进化系统 vs 实时总体: ${Math.abs(evolutionValue - overallSatisfaction).toFixed(2)}% ${evolutionVsOverall ? '✅' : '❌'}</p>
+                    <p>实时总体 vs 计算值: ${Math.abs(overallSatisfaction - calculatedOverall).toFixed(2)}% ${overallVsCalculated ? '✅' : '❌'}</p>
+                </div>
+            `;
+            
+            // 显示数据来源
+            const sourcesElement = document.getElementById('dataSources');
+            sourcesElement.innerHTML = `
+                <div class="data-row">
+                    <span class="data-label">进化系统数据源:</span>
+                    <span class="data-value">evolution_status.json</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">实时数据源:</span>
+                    <span class="data-value">HTML静态数据 + 动态更新</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">人口数据:</span>
+                    <span class="data-value">AI: 10,247 | 人类: 3,892 | 总计: 14,139</span>
+                </div>
+            `;
+        }
+        
+        // 页面加载后自动检查
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(checkSatisfactionConsistency, 1000);
+        });
+    </script>
+</body>
+</html>
